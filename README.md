@@ -23,6 +23,15 @@
 
 ### Long Class:
 - Classe EmployeeConf é muito extensa.
+- Na classe EmployeeConf existe maneiras de verificar qual o tipo de empregado que possuem uma linguagem implícita (precisando usar comentários para deixar claro).
+
+### Long Parameter List:
+- No método editEmployee (na classe EmployeeConf), existem parâmetros para Hourly, Salaried e Commissioned muito longos, usando 5 atributos do objeto Employee.
 
 ### Long Method:
 - Método editEmployee da classe EmployeeConf muito extensa com vários switch/case.
+- Muitas variáveis locais na classe EmployeeConf.
+
+# Refactor
+
+###
