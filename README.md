@@ -38,5 +38,5 @@
 # Refactor
 
 Para melhorar a maneira de verificar o tipo de empregado na classe EmployeeConf, foi criada uma nova classe EmployeeType que possue filtros para cada tipo de empregado e retorna uma lista somente com o tipo desejado, deixando o código mais limpo e claro.
-* antiga forma de verificar qual tipo de empregado se encontrava aqui e aqui. 
+* antiga forma de verificar qual tipo de empregado se encontrava nos métodos [addTC](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L98), [addSR](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L128) e [addSF](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L155). 
 * nova forma de verificar fica na classe EmployeeType. 
