@@ -38,7 +38,7 @@ public class PayrollSystem {
                 case 1:
                     employeeList.add(EmployeeConf.newEmployee(input, paySchedule));
                     break;
-
+                    
                 case 2:
                     if(employeeList.isEmpty()){
                         System.out.println("\nEmployee list is empty\n");
@@ -52,40 +52,38 @@ public class PayrollSystem {
                     }
                     break;
                 case 3:
-                    if(employeeList.isEmpty()){
-                        System.out.println("\nEmployee list is empty\n");
-                    }else{
-                        EmployeeConf.removeEmployee(input, employeeList);
-                    }
+                    EmployeeConf.removeEmployee(input, employeeList);
                     break;
 
                 case 4:
-                    if(employeeList.isEmpty()){
-                        System.out.println("\nEmployee list is empty\n");
+                    List<Employee> hourlyList = EmployeeType.isHourly(input, employeeList);
+                    if(hourlyList.isEmpty()){
+                        System.out.println("\nThere are no hourly employees on the list.\n");
                     }else{
-                        EmployeeConf.addTC(input, employeeList);
-                        
+                        EmployeeConf.addTimeCard(input, hourlyList);
                     }
                     break;
                 case 5:
-                    if(employeeList.isEmpty()){
-                        System.out.println("\nEmployee list is empty\n");
+                    List<Employee> commissionedList = EmployeeType.isCommissioned(input, employeeList);
+                    if(commissionedList.isEmpty()){
+                        System.out.println("\nThere are no commissioned employees on the list.\n");
                     }else{
-                        EmployeeConf.addSR(input, employeeList);
+                        EmployeeConf.addSaleReport(input, commissionedList);
                     }
                     break;
                 case 6:
-                    if(employeeList.isEmpty()){
-                        System.out.println("\nEmployee list is empty\n");
+                    List<Employee> syndicateList = EmployeeType.isSyndicateMember(input, employeeList);
+                    if(syndicateList.isEmpty()){
+                        System.out.println("\nThere are no syndicate members on the list.\n");
                     }else{
-                        EmployeeConf.addSF(input, employeeList);
+                        EmployeeConf.addServiceFee(input, syndicateList);
                     }
                     break;
                 case 7:
                     if(employeeList.isEmpty()){
                         System.out.println("\nEmployee list is empty\n");
                     }else{
-                        EmployeeConf.editEmployee(input, employeeList);
+                        EditEmployeeInfos.editEmployee(input, employeeList);
                     }
                     break;
                 case 8:

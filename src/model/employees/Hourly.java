@@ -13,8 +13,7 @@ public class Hourly extends Employee{
     private List<TimeCard> timeCard;
 
     @Override
-    public double calculatePayment(LocalDate date) { //calculo do pagamento para empregado horista
-        
+    public double calculatePayment(LocalDate date) {
         double total = 0, hours = 0.0, extraH = 0;
 
         List<TimeCard> timeCard;
@@ -25,7 +24,6 @@ public class Hourly extends Employee{
         paycheck = getPayInfo().getPaycheck();
         int i = paycheck.size()-1;
 
-        // verificar se os cartões de ponto do empregado são válidos, ou seja, se os cartões de ponto estão depois a ultima data de pagamento e antes da próxima
         if(!paycheck.isEmpty()){
             lastDate = paycheck.get(i).getDate();
             verifying = tC -> tC.getDate().isAfter(lastDate) && !tC.getDate().isAfter(date); 
@@ -37,14 +35,13 @@ public class Hourly extends Employee{
         timeCard = this.getTimeCard().stream().filter(verifying).collect(Collectors.toList()); // atribui a timeCard os cartões válidos(para aquela data);
 
 
-        for( TimeCard t : timeCard ){ //passando a lista de cartões válidos
-            System.out.println("cheguei aqui");
+        for( TimeCard t : timeCard ){
             LocalTime tIN = t.getTimeIN();
             LocalTime tOUT = t.getTimeOUT();
 
             
-            Duration d = Duration.between(tIN, tOUT); // calcula a duração entre o horário de entrada e o horário de saída;
-            hours = (double) d.toSeconds()/3600; //transforma a duração em horas
+            Duration d = Duration.between(tIN, tOUT);
+            hours = (double) d.toSeconds()/3600; 
             System.out.println("horas contabilizadas: " + hours);
             if(hours > 8){
                 extraH = hours-8;
@@ -89,7 +86,7 @@ public class Hourly extends Employee{
 
     @Override
     public String toString() {
-        return "{" +
+        return "\n-> Type: 'Hourly'\n{" +
             " Hour Pay = $" + getHourPay() +
             ", Time Card: " + getTimeCard() +
             "}";

@@ -80,7 +80,7 @@ public class Commissioned extends Employee{
 
     @Override
     public String toString() {
-        return "{" +
+        return "\n-> Type: 'Commissioned'\n{" +
             " Salary = $" + getSalary() +
             ", Percentage of Commission = " + getPercCommission() + "%" +
             ", Sales Report = '" + getSalesReport() + "'" +

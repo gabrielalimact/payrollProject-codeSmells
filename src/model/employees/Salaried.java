@@ -29,7 +29,7 @@ public class Salaried extends Employee {
 
     @Override
     public String toString() {
-        return "{" +
+        return "\n-> Type: 'Salaried'\n{" +
             " Salary = '$" + getSalary() + "'" +
             "}";
     }

@@ -1,6 +1,6 @@
 package model.employees;
 
-import java.time.LocalDate;
+import java.time.*;
 
 public class SalesReport {
 
@@ -33,8 +33,8 @@ public class SalesReport {
     @Override
     public String toString() {
         return "{" +
-            " value='" + getValue() + "'" +
-            ", date='" + getDate() + "'" +
+            " Sale Value='" + getValue() + "'" +
+            ", Date='" + getDate() + "'" +
             "}";
     }
     

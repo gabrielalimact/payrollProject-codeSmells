@@ -1,6 +1,5 @@
 package model.employees;
 
-
 import java.time.*;
 
 public class ServicesFees {
@@ -12,7 +11,6 @@ public class ServicesFees {
         this.value = value;
         this.date = date;
     }
-
 
     public double getValue() {
         return this.value;
@@ -33,7 +31,7 @@ public class ServicesFees {
     @Override
     public String toString() {
         return "{" +
-            " Value = '$" + getValue() + "'" +
+            "Fees Value = '$" + getValue() + "'" +
             ", Date = '" + getDate() + "'" +
             "}";
     }

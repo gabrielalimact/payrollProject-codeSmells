@@ -7,8 +7,6 @@ public class PaymentReport{
     private List<Paycheck> paycheck;
     private LocalDate date;
 
-
-
     public PaymentReport(List<Paycheck> paycheck, LocalDate date) {
         this.paycheck = paycheck;
         this.date = date;

@@ -48,4 +48,5 @@ Os mesmos métodos citados acima também sofreram alteração em seu nome.
 
 Para resolver o problema Long Class em EmployeeConf, foi criada outra classe exclusiva para o método editEmployee. E como esse método também tinha um bad smells Long Method, foi reorganizado de uma forma que ficasse mais fácil de enteder cada objetivo.
 * [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/054fcf19f456a7ad34f10afa8327e07ff2c32bfd/src/app/EditEmployeeInfos.java#L14).
+
 Também foi movido o método [getIndiceDaLista](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L71) para a classe [SystemInputs](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/8f8ab781404a43dde97f329ddbded990de7edca4/src/app/SystemInputs.java#L11).
