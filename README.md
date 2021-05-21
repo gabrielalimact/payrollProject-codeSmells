@@ -18,9 +18,6 @@
 
 # Code Smells
 
-### Duplicated Code:
-- Classes SalesReport e ServicesFees possuem a mesma estrutura.
-
 ### Long Class:
 - Classe EmployeeConf é muito extensa.
 - Na classe EmployeeConf existe maneiras de verificar qual o tipo de empregado que possuem uma linguagem implícita (precisando usar comentários para deixar claro).
@@ -32,6 +29,14 @@
 - Método editEmployee da classe EmployeeConf muito extensa com vários switch/case.
 - Muitas variáveis locais na classe EmployeeConf.
 
+### Duplicated Code:
+- Classes SalesReport e ServicesFees possuem a mesma estrutura.
+
+### Unclear:
+- Nome dos métodos addSR, addTC, addSF não explica o que o objetivo do método.
+
 # Refactor
 
-###
+Para melhorar a maneira de verificar o tipo de empregado na classe EmployeeConf, foi criada uma nova classe EmployeeType que possue filtros para cada tipo de empregado e retorna uma lista somente com o tipo desejado, deixando o código mais limpo e claro.
+* antiga forma de verificar qual tipo de empregado se encontrava aqui e aqui. 
+* nova forma de verificar fica na classe EmployeeType. 
