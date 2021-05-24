@@ -37,6 +37,13 @@
 
 # Refactor
 
+## Template Method
+"O padrão do Template Method sugere que você quebre um algoritmo em uma série de etapas, transforme essas etapas em métodos, e coloque uma série de chamadas para esses métodos dentro de um único método padrão." Na classe EmployeeConf existia um método chamado editEmployee, o qual era muito extenso e possuia diversos switch/case, que acabavam deixando o código confuso. Então, foi utilizado o padrão Template Method, criando métodos que separassem as etapas de editEmployee.
+Unindo isso ao bad smell "Long Method", também associado ao método editEmployee, foi criada uma classe exclusiva para essa função de editar um empregado.
+* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/054fcf19f456a7ad34f10afa8327e07ff2c32bfd/src/app/EditEmployeeInfos.java#L14).
+
+
+## Outros arranjos
 Para melhorar a maneira de verificar o tipo de empregado na classe EmployeeConf, foi criada uma nova classe EmployeeType que possue filtros para cada tipo de empregado e retorna uma lista somente com o tipo desejado, deixando o código mais limpo e claro.
 * antiga forma de verificar qual tipo de empregado se encontrava nos métodos [addTC](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L98), [addSR](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L128) e [addSF](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L155). 
 * nova forma de verificar fica na classe [EmployeeType](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/8f8ab781404a43dde97f329ddbded990de7edca4/src/app/EmployeeType.java#L7). 
@@ -46,8 +53,8 @@ Os mesmos métodos citados acima também sofreram alteração em seu nome.
 * addSR --> [addSaleReport](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/d21c5f702f4d05fb41431f27509c471cfd373014/src/app/EmployeeConf.java#L106);
 * addSF --> [addServiceFee](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/d21c5f702f4d05fb41431f27509c471cfd373014/src/app/EmployeeConf.java#L119);
 
-Para resolver o problema Long Class em EmployeeConf, foi criada outra classe exclusiva para o método editEmployee. E como esse método também tinha um bad smells Long Method, foi reorganizado de uma forma que ficasse mais fácil de enteder cada objetivo.
-* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/054fcf19f456a7ad34f10afa8327e07ff2c32bfd/src/app/EditEmployeeInfos.java#L14).
+Para resolver o problema 'Long Class' em EmployeeConf, foi criada outra classe exclusiva para o método editEmployee.
+* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/master/src/app/EmployeeConf.java).
 
 Também foi movido o método [getIndiceDaLista](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L71) para a classe [SystemInputs](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/8f8ab781404a43dde97f329ddbded990de7edca4/src/app/SystemInputs.java#L11).
 
