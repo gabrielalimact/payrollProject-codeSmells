@@ -98,7 +98,7 @@ public class EditEmployeeInfos {
             case 1:
                 if(!(employee instanceof Salaried)){
                     double salary = SystemInputs.readDouble(input, "Salary Value: ");
-                    employee = new Salaried(employee.getName(), employee.getAddress(), employee.getId(), employee.getSyndicate(), employee.getPayInfo(), salary);
+                    employee = new Salaried(salary);
                 }else{
                     System.out.println("The employee's already salaried.");
                 }
@@ -108,7 +108,7 @@ public class EditEmployeeInfos {
                 if(!(employee instanceof Commissioned)){ 
                     double salaryC = SystemInputs.readDouble(input, "Salary Value: ");
                     double commissionPay = SystemInputs.readDouble(input, "Percentage of Commission: ");
-                    employee = new Commissioned(employee.getName(), employee.getAddress(), employee.getId(), employee.getSyndicate(), employee.getPayInfo(), salaryC, commissionPay);
+                    employee = new Commissioned(salaryC, commissionPay);
                 }else{
                     System.out.println("The employee's already commissioned.");
                 }
@@ -117,7 +117,7 @@ public class EditEmployeeInfos {
             case 3:
                 if(!(employee instanceof Hourly)){
                     double hourPay = SystemInputs.readDouble(input, "Value for Work Hour: ");
-                    employee = new Hourly(employee.getName(), employee.getAddress(), employee.getId(), employee.getSyndicate(), employee.getPayInfo(), hourPay);
+                    employee = new Hourly(hourPay);
                 }else{
                     System.out.println("The employee's already hourly.");
                 }
@@ -148,8 +148,9 @@ public class EditEmployeeInfos {
                 break;
         }
     }
+    
     public static void editSyndicateInfo(Scanner input, Employee employee){
-        if(employee.getSyndicate()==null){
+        if(employee.getSyndicate()==null || !employee.getSyndicate().getActive()){
             System.out.println("Employee isn't a syndicalist. Want to register?\n1 - Yes\n2 - No\n");
             int o = SystemInputs.readInt(input, "");
             if(o == 1){                        
@@ -159,25 +160,17 @@ public class EditEmployeeInfos {
             }else{
                 return;
             }
-        }else{
-            if(employee.getSyndicate().getActive()){
-                System.out.println("Employee is a syndicalist. Do you want to disable?\n1 - Yes\n2 - No");
-                int o = SystemInputs.readInt(input, "");
-                if(o == 1){                        
-                    employee.getSyndicate().setActive(false);
-                }else{
-                    return;
-                }
-            }else if(!employee.getSyndicate().getActive()){
-                System.out.println("Employee is a inactive syndicalist. Do you want to reactivate?");
-                int o = SystemInputs.readInt(input, "1 - Yes\n2 - No");
-                if(o == 1){
-                    employee.getSyndicate().setActive(true);                            
-                }else{
-                    return;
-                }
+        }else{            
+            System.out.println("Employee is a syndicalist. Do you want to disable?\n1 - Yes\n2 - No");
+            int o = SystemInputs.readInt(input, "");
+            if(o == 1){                        
+                employee.getSyndicate().setActive(false);
+            }else{
+                return;
             }
+
         }
+        
     }
     
 }

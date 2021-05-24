@@ -26,8 +26,7 @@
 - No método editEmployee (na classe EmployeeConf), existem parâmetros para Hourly, Salaried e Commissioned muito longos, usando 5 atributos do objeto Employee.
 
 ### Long Method:
-- Método editEmployee da classe EmployeeConf muito extensa com vários switch/case.
-- Muitas variáveis locais na classe EmployeeConf.
+- Método editEmployee da classe EmployeeConf muito extensa.
 
 ### Duplicated Code:
 - Classes SalesReport e ServicesFees possuem a mesma estrutura.
@@ -62,3 +61,5 @@ Para resolver o problema 'Long Class' em EmployeeConf, foi criada outra classe e
 * [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/master/src/app/EmployeeConf.java).
 
 
+O bad smell "Long Parameter List" no momento de mudar o tipo de empregado foi resolvido criando outros construtores nas classes [Salaried](), [Commissioned]() e [Hourly](), que só recebem os parâmetros exclusivos de cada classe.
+* [antes](), [depois]().

@@ -12,6 +12,10 @@ public class Hourly extends Employee{
     private double hourPay;
     private List<TimeCard> timeCard;
 
+    public Hourly(double hourPay){
+        this.hourPay = hourPay;
+    }
+
     @Override
     public double calculatePayment(LocalDate date) {
         double total = 0, hours = 0.0, extraH = 0;

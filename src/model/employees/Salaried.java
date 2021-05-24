@@ -8,6 +8,9 @@ public class Salaried extends Employee {
     
     private double salary;
     
+    public Salaried(double salary) {
+        this.salary = salary;
+    }
     public Salaried(String name, String address, UUID id, Syndicate syndicate, Payments paymentInfo, double salary) {
         super(name, address, id, syndicate, paymentInfo);
         this.salary = salary;

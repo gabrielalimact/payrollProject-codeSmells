@@ -23,6 +23,9 @@ public abstract class Employee {
         this.payInfo = payInfo;
     }
 
+    public Employee() {
+    }
+
     public Paycheck paymentsForToday(LocalDate date){
         LocalDate lastPayDay;
         double totalSalary = this.calculatePayment(date);

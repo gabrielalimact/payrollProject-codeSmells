@@ -47,6 +47,7 @@ public class PayrollSystem {
                     for(Employee employee: employeeList){
                         System.out.println("{ " + i + " }"+" Employee: ");
                         System.out.println(employee.employeeInfos());
+                        System.out.println(employee.toString());
                         System.out.println("\n=========================\n");
                         i++;
                     }

@@ -12,8 +12,22 @@ public class Commissioned extends Employee{
     private double percCommission;
     private List<SalesReport> salesReport;
 
+    
+    public Commissioned(String name, String address, UUID id, Syndicate syndicate, Payments paymentInfo, double salary, double percCommission) {
+        super(name, address, id, syndicate, paymentInfo);
+        this.salary = salary;
+        this.percCommission = percCommission;
+        this.salesReport = new ArrayList<SalesReport>();
+    }
+
+    public Commissioned(double salary, double percCommission) {
+        this.salary = salary;
+        this.percCommission = percCommission;
+    }
+
+
     @Override
-    public double calculatePayment(LocalDate date) { //calculo de pagamento para empregado comissionado
+    public double calculatePayment(LocalDate date) {
         double total = this.getSalary()/2;
 
         List<SalesReport> salesReport;
@@ -23,15 +37,14 @@ public class Commissioned extends Employee{
         paycheck = getPayInfo().getPaycheck();
         int i = paycheck.size()-1;
 
-        //verifica os relatórios de venda que aconteceram depois do ultimo pagamento e antes do próximo, calculando o pagamento total;
         if(!paycheck.isEmpty() && paycheck != null){
             lastDate = paycheck.get(i).getDate();
-            verifying = s -> s.getDate().isAfter(lastDate) && !s.getDate().isAfter(date); // verificando se a data registrada é depois da ultima data e se a data atual não é depois da data registrada; 
+            verifying = s -> s.getDate().isAfter(lastDate) && !s.getDate().isAfter(date);
         } else{
-            verifying = s -> !s.getDate().isAfter(date); // verificando se a data registrada não é depois da atual
+            verifying = s -> !s.getDate().isAfter(date);
         }
 
-        salesReport = this.getSalesReport().stream().filter(verifying).collect(Collectors.toList()); // atribui a salesReport todas as vendas que são válidas, após o processo de verificação
+        salesReport = this.getSalesReport().stream().filter(verifying).collect(Collectors.toList());
 
 
         for( SalesReport sales : salesReport ){
@@ -42,13 +55,6 @@ public class Commissioned extends Employee{
         
         return total;
         
-    }
-    
-    public Commissioned(String name, String address, UUID id, Syndicate syndicate, Payments paymentInfo, double salary, double percCommission) {
-        super(name, address, id, syndicate, paymentInfo);
-        this.salary = salary;
-        this.percCommission = percCommission;
-        this.salesReport = new ArrayList<SalesReport>();
     }
 
     

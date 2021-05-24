@@ -21,25 +21,23 @@ public class PaymentConf {
         int op = input.nextInt();
         PayMethods pmethod = PayMethods.values()[op-1];
 
-        // System.out.println("Bank Number: ");
-        // int bank = input.nextInt();
-        // System.out.println("Agency Number: ");
-        // int agency = input.nextInt();
-        // System.out.println("Account Number: ");
-        // int account = input.nextInt();
+        System.out.println("Bank Number: ");
+        int bank = input.nextInt();
+        System.out.println("Agency Number: ");
+        int agency = input.nextInt();
+        System.out.println("Account Number: ");
+        int account = input.nextInt();
 
 
-        return new Payments(260, 1236, 123456, schedule, pmethod);
+        return new Payments(bank, agency, account, schedule, pmethod);
     }
 
     public static void TodayPayroll(Scanner input, List<Employee> employeeList){
-        System.out.println("Enter the start date, please: ");
-        LocalDate start = SystemInputs.readDate(input);
-        System.out.println("Enter the end date, please: ");
-        LocalDate end = SystemInputs.readDate(input);
+        LocalDate start = SystemInputs.readDate(input, "Enter the start date, please: ");
+        LocalDate end = SystemInputs.readDate(input, "Enter the end date, please: ");
         int i=0;
         long daysBetween = ChronoUnit.DAYS.between(start, end);
-        System.out.println(daysBetween);
+        
         int isFriday = 0;
         Paycheck paycheck;
         LocalDate date = start;

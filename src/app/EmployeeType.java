@@ -39,9 +39,7 @@ public class EmployeeType {
                 }
             }
         }
-        if(commissionedList.isEmpty()){
-            System.out.println("\nThere are no commissioned employees on the list.\n");
-        }
+        
         return commissionedList;
     }
 

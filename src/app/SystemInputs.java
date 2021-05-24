@@ -51,7 +51,7 @@ public class SystemInputs {
         return r;
     }
 
-    public static LocalDate readDate(Scanner input){
+    public static LocalDate readDate(Scanner input, String output){
         System.out.println("Day: ");
         int day = input.nextInt();
         System.out.println("Month (number): ");
