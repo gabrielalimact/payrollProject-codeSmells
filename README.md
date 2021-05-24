@@ -39,11 +39,11 @@
 ### Template Method
 "O padrão do *Template Method* sugere que você quebre um algoritmo em uma série de etapas, transforme essas etapas em métodos, e coloque uma série de chamadas para esses métodos dentro de um único método padrão." Na classe EmployeeConf existia um método chamado editEmployee, o qual era muito extenso e possuia diversos switch/case, que acabavam deixando o código confuso. Então, foi utilizado o padrão Template Method, criando métodos que separassem as etapas de editEmployee.
 Unindo isso ao bad smell "Long Method", também associado ao método editEmployee, foi criada uma classe exclusiva para essa função de editar um empregado.
-* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/054fcf19f456a7ad34f10afa8327e07ff2c32bfd/src/app/EditEmployeeInfos.java#L14).
+* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L177), [depois](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/master/src/app/employeeMenu/EditEmployeeInfos.java).
 
 
 ### Interpreter
-O padrão *Interpreter* foi utilizado para resolver o problema de linguagem implícita na maneira de filtrar os tipos de empregados nos métodos [addTC](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L98), [addSR](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L128) e [addSF](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L155). Para isso, foi criada uma nova classe [EmployeeType](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/8f8ab781404a43dde97f329ddbded990de7edca4/src/app/EmployeeType.java#L7), dessa forma fica melhor de entender o que tá sendo feito para separar o empregado de acordo com o tipo 'hourly', 'salaried', 'commissioned' e se faz parte ou não do sindicato.
+O padrão *Interpreter* foi utilizado para resolver o problema de linguagem implícita na maneira de filtrar os tipos de empregados nos métodos [addTC](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L98), [addSR](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L128) e [addSF](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L155). Para isso, foi criada uma nova classe [EmployeeType](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/129234a4e5a60e3ec7b751156a9d358c5b6706f9/src/app/employeeMenu/EmployeeType.java#L9), dessa forma fica melhor de entender o que tá sendo feito para separar o empregado de acordo com o tipo 'hourly', 'salaried', 'commissioned' e se faz parte ou não do sindicato.
 
 ### Move Method
 O método getIndiceDaLista(), que ficava na classe [EmployeeConf](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L71) foi movido para a classe [SystemInputs](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/8f8ab781404a43dde97f329ddbded990de7edca4/src/app/SystemInputs.java#L11).
@@ -52,9 +52,9 @@ O método getIndiceDaLista(), que ficava na classe [EmployeeConf](https://github
 ### Outros arranjos
 
 Os mesmos métodos abaixo sofreram alteração em seu nome, com propósito de deixar mais explícito o que cada um faz.
-* addTC --> [addTimeCard](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/d21c5f702f4d05fb41431f27509c471cfd373014/src/app/EmployeeConf.java#L84);
-* addSR --> [addSaleReport](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/d21c5f702f4d05fb41431f27509c471cfd373014/src/app/EmployeeConf.java#L106);
-* addSF --> [addServiceFee](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/d21c5f702f4d05fb41431f27509c471cfd373014/src/app/EmployeeConf.java#L119);
+* addTC --> [addTimeCard](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/129234a4e5a60e3ec7b751156a9d358c5b6706f9/src/app/employeeMenu/EmployeeConf.java#L83);
+* addSR --> [addSaleReport](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/129234a4e5a60e3ec7b751156a9d358c5b6706f9/src/app/employeeMenu/EmployeeConf.java#L104);
+* addSF --> [addServiceFee](https://github.com/gabrielalimact/payrollProject-codeSmells/blob/129234a4e5a60e3ec7b751156a9d358c5b6706f9/src/app/employeeMenu/EmployeeConf.java#L116);
 
 
 Para resolver o problema 'Long Class' em EmployeeConf, foi criada outra classe exclusiva para o método editEmployee.
