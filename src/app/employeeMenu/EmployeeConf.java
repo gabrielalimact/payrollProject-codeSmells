@@ -1,8 +1,9 @@
-package app;
+package app.employeeMenu;
 
 import model.payments.*;
 import model.employees.*;
 import model.employees.Salaried;
+import app.*;
 
 
 import java.time.*;

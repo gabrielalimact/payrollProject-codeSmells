@@ -1,9 +1,10 @@
-package app;
+package app.employeeMenu;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import app.*;
 import model.employees.Commissioned;
 import model.employees.Employee;
 import model.employees.Hourly;

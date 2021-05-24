@@ -62,4 +62,4 @@ Para resolver o problema 'Long Class' em EmployeeConf, foi criada outra classe e
 
 
 O bad smell "Long Parameter List" no momento de mudar o tipo de empregado foi resolvido criando outros construtores nas classes [Salaried](), [Commissioned]() e [Hourly](), que só recebem os parâmetros exclusivos de cada classe.
-* [antes](), [depois]().
+* [antes](https://github.com/gabrielalimact/payroll-project/blob/74c0b19f7a61a498b19599d39e15a56d6ba31122/src/app/EmployeeConf.java#L215), [depois]().
